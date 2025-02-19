@@ -1,0 +1,26 @@
+<div class="header">
+  <a href="#/user/new" class="btn-primary">Create User</a>
+</div>
+
+<div class="container">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>USERNAME</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>EMAIL</th>
+        <th>TYPE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="user-list-row" ng-click="moveToDetails(user.id)" ng-repeat="user in users">
+        <td>{{ user.user_name }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.user_type }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,50 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 ng-if="!isNewUser">{{ user.first_name }} {{ user.last_name }}</h2>
+      <h2 ng-if="isNewUser">Create new user</h2>
+      <button class="close-btn" ng-click="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <form name="userForm">
+        <label>Username*</label>
+        <input type="text" ng-class="{ 'input-error': errors.user_name && isFormChecked }" ng-model="user.user_name" name="user_name" required validate-field>
+        <span class="error-message" ng-if="errors.user_name && isFormChecked ">{{ errors.user_name }}</span>
+
+        <label>First name*</label>
+        <input type="text" ng-class="{ 'input-error': errors.first_name && isFormChecked }" ng-model="user.first_name" name="first_name" required validate-field>
+        <span class="error-message" ng-if="errors.first_name && isFormChecked">{{ errors.first_name }}</span>
+
+        <label>Last name*</label>
+        <input type="text" ng-class="{ 'input-error': errors.last_name && isFormChecked }" ng-model="user.last_name" name="last_name" required validate-field>
+        <span class="error-message" ng-if="errors.last_name && isFormChecked">{{ errors.last_name }}</span>
+
+        <label>Email*</label>
+        <input type="email" ng-class="{ 'input-error': errors.email && isFormChecked }" ng-model="user.email" name="email" required validate-field>
+        <span class="error-message" ng-if="errors.email && isFormChecked">{{ errors.email }}</span>
+
+        <label>Type*</label>
+        <select ng-class="{ 'input-error': errors.user_type && isFormChecked }" ng-model="user.user_type" name="user_type" required validate-field>
+          <option value="Driver">Driver</option>
+          <option value="User">User</option>
+        </select>
+        <span class="error-message" ng-if="errors.user_type && isFormChecked">{{ errors.user_type }}</span>
+
+        <label>Password*</label>
+        <input type="password" ng-class="{ 'input-error': errors.password && isFormChecked }" ng-model="user.password" name="password" required validate-field>
+        <span class="error-message" ng-if="errors.password && isFormChecked">{{ errors.password }}</span>
+
+        <label>Repeat password*</label>
+        <input type="password" ng-class="{ 'input-error': errors.repeat_password && isFormChecked }" ng-model="user.repeat_password" name="repeat_password" required validate-field>
+        <span class="error-message" ng-if="errors.repeat_password && isFormChecked">{{ errors.repeat_password }}</span>
+      </form>
+    </div>
+    <div ng-if="!isNewUser" class="modal-footer">
+      <button class="btn-delete" ng-click="deleteUser(user.id)">Delete</button>
+      <button class="btn-save" ng-click="saveUser()">Save</button>
+    </div>
+    <div ng-if="isNewUser" class="modal-footer">
+      <button class="btn-save" ng-click="createUser()">Create</button>
+    </div>
+  </div>
+</div>

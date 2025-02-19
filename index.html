@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>AngularJS User Management</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/services/user.service.js"></script>
+    <script src="app/services/notification.service.js"></script>
+    <script src="app/controllers/user-list.controller.js"></script>
+    <script src="app/controllers/user-view.controller.js"></script>
+    <script src="app/directives/validate-form.directive.js"></script>
+  </head>
+  <body>
+    <div ng-view></div>
+    <div class="notification-container" ng-if="notification.visible">
+      <div class="notification-box {{ notification.type }}">
+        {{ notification.message }}
+      </div>
+    </div>
+  </body>
+</html>
